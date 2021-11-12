@@ -91,9 +91,10 @@ let aikaCount;
 let timeValue = 15;
 
 const seu_btn = koe_laatikko.querySelector(".seuraava_btn");
+//const uud_btn = koe_laatikko.querySelector(".uudelleen");
 
 seu_btn.onclick = ()=>{
-    if(kysymysCount < kysymykset.length){
+    if(kysymysCount <= kysymykset.length){
     kysymysCount++;
     kysy_no++;
     naytaKysymys(kysymysCount);
@@ -101,10 +102,27 @@ seu_btn.onclick = ()=>{
     clearInterval(aikaCount);
     aloitaCounter(timeValue);
     seu_btn.style.display = "none";
+    //uud_btn.style.display = "none";
 } else {
     console.log("Kysymykset on Loppunut");
+    //uud_btn.onclick = ()=>{
+        alert('Koe on loppunut. Otetaanko kokeetta uudestaan?')
+        window.location.reload();
+        //uud_btn.style.display = "block";
+
+    }
 }
-}
+
+
+
+//uud_btn.onclick = ()=>{
+    //if(kysymysCount == kysymykset[4].kysymys){
+        //kysymysCount++;
+        //alert('Koe on loppunut. Otetaanko kokeetta uudestaan?')
+        //window.location.reload();
+        //uud_btn.style.display = "none";
+    //}
+//}
 
 function naytaKysymys(index){
     const kysymys_teksti = document.querySelector(".kysymys_teksti");
@@ -147,6 +165,7 @@ function vaihtoehtoSelected(vastaus){
         vaihtoehdot_lista.children[i].classList.add("disabled");
     }
     seu_btn.style.display = "block";
+    //uud_btn.style.display = "none";
 }
 
 function aloitaCounter(aika){

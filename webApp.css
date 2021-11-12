@@ -306,7 +306,7 @@ footer .yhteensa span p:first-child {
   padding-left: 0px;
 }
 
-footer button {
+footer .seuraava_btn {
   height: 40px;
   padding: 0 13px;
   font-size: 18px;
@@ -315,23 +315,28 @@ footer button {
   color: #fff;
   background: #007bff;
   border-radius: 5px;
-  margin-right: 50px;
+  margin-right: 0px;
   cursor: pointer;
   transition: all 1s ease;
+  display: none;
 }
 
-footer button:hover {
-  background: #0263ca;
-}
-
-.tulos_laatikko {
-  background: #fff;
-  width: 450px;
-  padding: 25px 30px;
+footer .uudelleen {
+  height: 40px;
+  padding: 0 13px;
+  font-size: 18px;
+  font-weight: 400;
+  border: none;
+  color: #fff;
+  background: #007bff;
   border-radius: 5px;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
+  cursor: pointer;
+  transition: all 1s ease;
+  margin-left: 180px;
+  position: fixed;
+  display: none;
+}
+
+footer footer button:hover {
+  background: #0263ca;
 }
