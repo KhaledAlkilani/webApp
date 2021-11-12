@@ -4,6 +4,7 @@ const lopeta_btn = tieto_laatikko.querySelector(".buttons .lopeta");
 const jatka_btn = tieto_laatikko.querySelector(".buttons .jatka");
 const koe_laatikko = document.querySelector(".koe_laatikko");
 const vaihtoehdot_lista = document.querySelector(".vaihtoehdot_lista");
+let timeCount = koe_laatikko.querySelector(".timer .aika_sek");
 
 aloitus_btn.onclick = ()=>{
     tieto_laatikko.classList.add("activeTieto");
@@ -18,6 +19,7 @@ jatka_btn.onclick = ()=>{
     koe_laatikko.classList.add("activeKoe");
     naytaKysymys(0);
     kysyCount(1);
+    aloitaCounter(15);
 }
 
 let kysymykset = [
@@ -85,6 +87,8 @@ let kysymykset = [
 
 let kysymysCount = 0;
 let kysy_no = 1;
+let aikaCount;
+let timeValue = 15;
 
 const seu_btn = koe_laatikko.querySelector(".seuraava_btn");
 
@@ -94,6 +98,9 @@ seu_btn.onclick = ()=>{
     kysy_no++;
     naytaKysymys(kysymysCount);
     kysyCount(kysy_no);
+    clearInterval(aikaCount);
+    aloitaCounter(timeValue);
+    seu_btn.style.display = "none";
 } else {
     console.log("Kysymykset on Loppunut");
 }
@@ -116,6 +123,7 @@ function naytaKysymys(index){
 }
 
 function vaihtoehtoSelected(vastaus){
+    clearInterval(aikaCount);
     let kayttayaVas = vastaus.innerHTML;
     let oikVastaus = kysymykset[kysymysCount].vastaus;
     let kaikkiVaihtoehdot = vaihtoehdot_lista.children.length;
@@ -126,17 +134,33 @@ function vaihtoehtoSelected(vastaus){
         vastaus.classList.add("vaarin");
         console.log("Väärin Vastaus");
 
-        if(vaihtoehdot_lista[i].children)
+        for(let i = 0; i < kaikkiVaihtoehdot; i++){
+            if(vaihtoehdot_lista.children[i].innerHTML == oikVastaus){
+                //vaihtoehdot_lista.children[i].setAttribute("class", "Oikein Vaihtoehto");
+                vaihtoehdot_lista.children[i].classList.add("oikein");
+    }
+
+        }
     }
 
     for(let i = 0; i < kaikkiVaihtoehdot; i++){
         vaihtoehdot_lista.children[i].classList.add("disabled");
     }
+    seu_btn.style.display = "block";
 }
 
-let timerTeksti = document.querySelector(".timer .aika_teksti");
-let timer = document.querySelector(".timer .aika_sek");
-let timer_tag =  '<span>'+ timerTeksti + " " + timer +'</span>';
+function aloitaCounter(aika){
+aikaCount = setInterval(timer, 1000);
+function timer(){
+    timeCount.innerHTML = aika;
+    aika--;
+    if(aika < 0){
+        clearInterval(aikaCount);
+        timeCount.innerHTML = ("0");
+}
+}
+
+}
 
 
 function kysyCount(index){
