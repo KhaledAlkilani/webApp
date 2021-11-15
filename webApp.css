@@ -7,15 +7,26 @@
 }
 
 h1 {
-  margin-left: 45%;
   margin-top: 5%;
-  color: #fff;
-  font-variant: unset;
+  text-align: center;
+  color: blue;
+  font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  background-color: gray;
+  background-color: white;
+}
+
+.vl {
+  border-left: 25px solid blue;
+  height: 785px;
+  margin-left: 20%;
+}
+
+.hl {
+  border-top: 25px solid blue;
+  margin-top: -368px;
 }
 
 ::selection {
@@ -43,23 +54,26 @@ body {
 
 .aloita_btn button {
   font-size: 25px;
-  font-weight: 500;
-  color: #007bff;
-  padding: 15px 30px;
-  outline: none;
-  border: none;
+  font-weight: bold;
+  color: blue;
+  padding: 18px 15px;
   border-radius: 5px;
-  background: #fff;
+  border: none;
+  border-bottom: 15px solid blue;
+  background: white;
   cursor: pointer;
   position: absolute;
-  top: 50%;
-  left: 45%;
+  top: 49%;
+  left: 50%;
   z-index: 1;
+  transition: all 0.9s ease;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .aloita_btn button:hover {
-  color: green;
-  background: gainsboro;
+  color: blue;
+  background: lightblue;
+  border-bottom: 15px solid blue;
 }
 
 .tieto_laatikko {
@@ -68,9 +82,10 @@ body {
   border-radius: 5px;
   position: fixed;
   top: 50%;
-  left: 50%;
+  left: 20%;
   opacity: 0;
-  transform: translate(-50%, -50%) scale(1);
+  transition: all 0.9s ease;
+  transform: translate(-50%, -50%) scale(0);
 }
 
 .tieto_laatikko .tieto_otsikko {
@@ -83,6 +98,8 @@ body {
   border-radius: 5px 5px 0 0;
   font-size: 20px;
   font-weight: 600;
+  color: white;
+  background-color: blue;
 }
 
 .tieto_laatikko .tieto_lista {
@@ -106,6 +123,8 @@ body {
   justify-content: flex-end;
   padding: 0 35px;
   border-top: 1px solid lightgray;
+  color: white;
+  background-color: blue;
 }
 
 .tieto_laatikko .buttons button {
@@ -124,22 +143,23 @@ body {
 }
 
 .buttons button.jatka {
-  color: white;
-  background: #007bff;
+  color: blue;
+  background: white;
+  font-weight: bold;
 }
 
 .buttons button.jatka:hover {
-  background: #0263ca;
+  background: lightblue;
 }
 
 .buttons button.lopeta {
-  color: #007bff;
-  background: lightgray;
+  color: blue;
+  background: white;
+  font-weight: bold;
 }
 
 .buttons button.lopeta:hover {
-  background: #007bff;
-  color: rgb(126, 115, 115);
+  background: lightblue;
 }
 
 .koe_laatikko {
@@ -151,8 +171,10 @@ body {
   border-radius: 8px;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3s ease;
+  transition: all 0.9s ease;
   position: fixed;
+  transition: all 0.9s ease;
+  transform: translate(-50%, -50%) scale(0);
 }
 
 .koe_laatikko header {
@@ -166,6 +188,8 @@ body {
   justify-content: space-between;
   border-radius: 5px 5px 0 0;
   box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.2);
+  color: white;
+  background-color: blue;
 }
 
 .koe_laatikko header .otsikko {
@@ -179,29 +203,31 @@ body {
   justify-content: space-between;
   width: 180px;
   height: 45px;
-  background: #cce5ff;
+  background: white;
   border: 1px solid #b8daff;
   border-radius: 5px;
   padding: 0 8px;
 }
 
 .koe_laatikko header .timer .aika_teksti {
-  font-weight: 400;
+  font-weight: bold;
   font-size: 17px;
   user-select: none;
+  color: blue;
+  width: 80%;
 }
 
 .koe_laatikko header .timer .aika_sek {
   font-size: 18px;
   font-weight: 500;
-  background: gray;
+  background: white;
   height: 30px;
   width: 40px;
-  color: whitesmoke;
+  color: blue;
   text-align: center;
   line-height: 30px;
   border-radius: 5px;
-  border: 1px solid #343a40;
+  border: 1.5px solid blue;
   user-select: none;
 }
 
@@ -226,11 +252,8 @@ section .vaihtoehdot_lista .vaihtoehto {
   border-radius: 5px;
   padding: 8px 15px;
   margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
 section .vaihtoehdot_lista .vaihtoehto:hover {
@@ -239,38 +262,10 @@ section .vaihtoehdot_lista .vaihtoehto:hover {
   border-color: #b8daff;
 }
 
-.vaihtoehdot_lista .vaihtoehto:last-child {
-  margin-bottom: 0px;
-}
-
-.vaihtoehdot_lista .vaihtoehto .icon {
-  height: 26px;
-  width: 26px;
-  border: 2px solid transparent;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 13px;
-  line-height: 24px;
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
-
-.vaihtoehdot_lista .vaihtoehto .icon.tick {
-  border-color: green;
-  color: green;
-  background: lightgreen;
-}
-
 .vaihtoehdot_lista .vaihtoehto.oikein {
   border-color: green;
   color: green;
   background: lightgreen;
-}
-
-.vaihtoehdot_lista .vaihtoehto .icon.cross {
-  border-color: red;
-  color: red;
-  background: #f8d7da;
 }
 
 .vaihtoehdot_lista .vaihtoehto.vaarin {
@@ -290,6 +285,8 @@ footer {
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid lightgrey;
+  color: white;
+  background-color: blue;
 }
 
 footer .yhteensa span {
@@ -310,33 +307,15 @@ footer .seuraava_btn {
   height: 40px;
   padding: 0 13px;
   font-size: 18px;
-  font-weight: 400;
   border: none;
-  color: #fff;
-  background: #007bff;
   border-radius: 5px;
   margin-right: 0px;
-  cursor: pointer;
-  transition: all 1s ease;
   display: none;
+  color: blue;
+  background: white;
+  font-weight: bold;
 }
 
-footer .uudelleen {
-  height: 40px;
-  padding: 0 13px;
-  font-size: 18px;
-  font-weight: 400;
-  border: none;
-  color: #fff;
-  background: #007bff;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 1s ease;
-  margin-left: 180px;
-  position: fixed;
-  display: none;
-}
-
-footer footer button:hover {
-  background: #0263ca;
+footer .seuraava_btn:hover {
+  background: lightblue;
 }
