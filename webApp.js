@@ -105,17 +105,22 @@ seu_btn.onclick = ()=>{
     seu_btn.style.display = "none";
 } else {
     console.log("Kysymykset on Loppunut");
-   
-        alert('Koe on loppunut. Otetaanko kokeetta uudestaan?')
-        window.location.reload();
+    koe_laatikko.classList.remove("activeKoe");
+    aloitus_btn.style.display = "none";
+    uud_btn.style.display = "block";
+
+    //document.classList.add("tee_uud");
+        //alert('Koe on loppunut. Otetaanko kokeetta uudestaan?')
+        //window.location.reload();
 
     }
 }
 
-//uud_btn.onclick = ()=>{
-        //window.location.reload();
-    //}
-//}
+const uud_btn = document.querySelector(".tee_uud");
+
+uud_btn.onclick = ()=>{
+        window.location.reload();
+    }
 
 function naytaKysymys(index){
     const kysymys_teksti = document.querySelector(".kysymys_teksti");
@@ -144,7 +149,6 @@ function vaihtoehtoSelected(vastaus){
     } else {
         vastaus.classList.add("vaarin");
         console.log("Väärin Vastaus");
-        
         
 
         for(let i = 0; i < kaikkiVaihtoehdot; i++){

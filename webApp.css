@@ -319,3 +319,22 @@ footer .seuraava_btn {
 footer .seuraava_btn:hover {
   background: lightblue;
 }
+
+.tee_uud {
+  font-size: 25px;
+  font-weight: bold;
+  color: blue;
+  padding: 17px 15px;
+  border-radius: 5px;
+  border: none;
+  border-bottom: 28px solid blue;
+  background: white;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  display: none;
+  transition: all 0.9s ease;
+  transform: translate(-50%, -50%) scale(1);
+}
