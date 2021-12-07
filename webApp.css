@@ -101,15 +101,19 @@ body {
   padding: 9px 15px;
   border-radius: 5px;
   border: none;
-  border-bottom: 15px solid blue;
+  /* border-bottom: 15px solid blue; */
   background: white;
   cursor: pointer;
   position: absolute;
-  top: 53.5%;
-  left: 50%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: row;
+  /* top: 41%; */
+  left: 45%;
   z-index: 1;
   transition: all 0.9s ease;
-  transform: translate(-50%, -50%) scale(1);
+  /* transform: translate(-50%, -50%) scale(1); */
   background-color: lightblue;
   background-image: linear-gradient(to right, blue, white);
 }
